@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .songs-section {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .song {
+            margin-bottom: 30px;
+        }
+
+            .song h2 {
+                color: #333;
+                font-weight: bold;
+            }
+
+        .lines {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            .lines li {
+                margin: 5px 0;
+            }
+
+            .lines a {
+                text-decoration: none;
+                color: #007bff;
+                cursor: pointer;
+            }
+
+                .lines a:hover {
+                    text-decoration: underline;
+                }
+
+        .slider-section {
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+            text-align: center;
+        }
+
+            .slider-section label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .slider-section input {
+                width: 80%;
+                max-width: 300px;
+            }
+
+        .iframe-section {
+            flex: 1;
+            padding: 0;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .songs-section {
+                padding: 10px;
+            }
+
+            .slider-section {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="songs-section">
+        <h1>Songs</h1>
+        <div id="songs-container"></div>
+    </div>
+    <hr style="margin: 0; border: 1px solid #ccc;">
+    <div class="slider-section">
+        <label for="speed-slider">Playback Speed: <span id="speed-value">100%</span></label>
+        <input type="range" id="speed-slider" min="25" max="200" step="5" value="100">
+    </div>
+    <hr style="margin: 0; border: 1px solid #ccc;">
+    <div class="iframe-section">
+        <iframe name="song" title="Song Content" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <script>const songsData = {
+            "songs": [
+                {
+                    "title": "Durga Suktam",
+                    "lines": [
+                        {
+                            "label": "Jaatavedase sunavaama",
+                            "url": "https://looptube.io/?videoId=2jOYhu85q70&start=5.7&end=21.389462274520152"
+                        },
+                        {
+                            "label": "taamagnivarnaam",
+                            "url": "https://looptube.io/?videoId=2jOYhu85q70&start=21.58592402170103&end=31.9630990733359"
+                        },
+                        {
+                            "label": "durgaam devigm ",
+                            "url": "https://looptube.io/?videoId=2jOYhu85q70&start=32.0191538397644&end=40.008440529188476"
+                        },
+                        {
+                            "label": "agnae twam",
+                            "url": "https://looptube.io/?videoId=2jOYhu85q70&start=40.21698887636184&end=50.04952844594251"
+                        },
+                        {
+                            "label": "puushcha",
+                            "url": "https://looptube.io/?videoId=2jOYhu85q70&start=50.04952844594251&end=58.58600246599375"
+                            //looptube.xyz/?vid=2jOYhu85q70&start=50.04952844594251&end=58.58600246599375
+                        },
+                        {
+                            "label": "vishwaani noo",
+                            "url": "https://looptube.io/?videoId=2jOYhu85q70&start=58.58600246599375&end=67.00492567492728"
+                            //looptube.xyz/?vid=2jOYhu85q70&start=58.58600246599375&end=67.00492567492728
+                        },
+                        {
+                            "label": "agnae atrivan",
+                            "url": "https://looptube.io/?videoId=2jOYhu85q70&start=67.00492567492728&end=77.27771334792865"
+                            //looptube.xyz/?vid=2jOYhu85q70&start=67.00492567492728&end=77.27771334792865
+                        },
+                        {
+                            "label": "prutanaa",
+                            "url": "https://looptube.io/?videoId=2jOYhu85q70&start=77.27771334792865&end=86.50627728793471"
+                            //looptube.xyz/?vid=2jOYhu85q70&start=77.27771334792865&end=86.50627728793471
+                        },
+                        {
+                            "label": "sa nah parshadati",
+                            "url": "https://looptube.io/?videoId=2jOYhu85q70&start=86.50627728793471&end=96.12475200165416"
+                            //looptube.xyz/?vid=2jOYhu85q70&start=86.50627728793471&end=96.12475200165416
+                        },
+                        {
+                            "label": "prathnooshi",
+                            "url": "https://looptube.io/?videoId=2jOYhu85q70&start=96.12475200165416&end=105.10169602440894"
+                            //looptube.xyz/?vid=2jOYhu85q70&start=96.12475200165416&end=105.10169602440894
+                        },
+                        {
+                            "label": "swaam",
+                            "url": "https://looptube.io/?videoId=2jOYhu85q70&start=105.10169602440894&end=114.5391423446453"
+                            //looptube.xyz/?vid=2jOYhu85q70&start=105.10169602440894&end=114.5391423446453
+                        },
+                        {
+                            "label": "goobhirju",
+                            "url": "https://looptube.io/?videoId=2jOYhu85q70&start=114.5391423446453&end=123.23196459960934"
+                            //looptube.xyz/?vid=2jOYhu85q70&start=114.5391423446453&end=123.23196459960934
+                        },
+                        {
+                            "label": "naakasya",
+                            "url": "https://looptube.io/?videoId=2jOYhu85q70&start=123.23196459960934&end=132.2284001051278"
+                            //looptube.xyz/?vid=2jOYhu85q70&start=123.23196459960934&end=132.2284001051278
+                        },
+                        {
+                            "label": "kaathyaananaaya",
+                            "url": "https://looptube.io/?videoId=2jOYhu85q70&start=132.2284001051278&end=143.61714577646234"
+                            //looptube.xyz/?vid=2jOYhu85q70&start=132.2284001051278&end=143.61714577646234
+                        },
+                        {
+                            "label": "om shantih...",
+                            "url": "https://looptube.io/?videoId=2jOYhu85q70&start=143.61714577646234&end=149.4401995545109"
+                            //looptube.xyz/?vid=2jOYhu85q70&start=143.61714577646234&end=149.4401995545109
+                        },
+                        {
+                            "label": "rest of it not in Chinmaya",
+                            "url": "https://looptube.io/?videoId=2jOYhu85q70&start=149.4401995545109&end=190"
+                        }
+                    ]
+                },
+                {
+                    "title": "Medha suktam",
+                    "lines": [
+                        {
+                            "label": "Medha Devi",
+                            "url": "https://www.looptube.io/?videoId=WN-nyOyIWp0&start=5.259585718892002&end=14.590380218275346"
+                        },
+                        {
+                            "label": "Twayaa Jushtaa",
+                            "url": "https://www.looptube.io/?videoId=WN-nyOyIWp0&start=14.590380218275346&end=24.162868243832204"
+                        },
+                        {
+                            "label": "twayaa jushta rushirbhawati",
+                            "url": "https://www.looptube.io/?videoId=WN-nyOyIWp0&start=24.162868243832204&end=33.20543896317145"
+                        },
+                        {
+                            "label": "twayaa jushtashchitram",
+                            "url": "https://www.looptube.io/?videoId=WN-nyOyIWp0&start=33.20543896317145&end=41.78573469524539"
+                        },
+                        {
+                            "label": "medhaam ma indro",
+                            "url": "https://www.looptube.io/?videoId=WN-nyOyIWp0&start=41.78573469524539&end=48.74487276344727"
+                        },
+                        {
+                            "label": "medhaam mae",
+                            "url": "https://www.looptube.io/?videoId=WN-nyOyIWp0&start=48.74487276344727&end=56.471785496395626"
+                        },
+                        {
+                            "label": "ashwi…",
+                            "url": "https://www.looptube.io/?videoId=WN-nyOyIWp0&start=48.74487276344727&end=56.471785496395626"
+                        },
+                        {
+                            "label": "apsaraasu",
+                            "url": "https://www.looptube.io/?videoId=WN-nyOyIWp0&start=56.471785496395626&end=62.7297570846669"
+                            //www.looptube.xyz/?vid=WN-nyOyIWp0&start=56.471785496395626&end=62.7297570846669
+
+                        },
+                        {
+                            "label": "daiveem medhaa",
+                            "url": "https://www.looptube.io/?videoId=WN-nyOyIWp0&start=62.7297570846669&end=73.71215861939083"
+                            //www.looptube.xyz/?vid=WN-nyOyIWp0&start=62.7297570846669&end=73.71215861939083
+                        },
+                        {
+                            "label": "aamaam medhaa",
+                            "url": "https://www.looptube.io/?videoId=WN-nyOyIWp0&start=73.71215861939083&end=82.8451017946726"
+                        },
+                        {
+                            "label": "uurjaswatii",
+                            "url": "https://www.looptube.io/?videoId=WN-nyOyIWp0&start=82.8451017946726&end=92.7656357134441"
+                            //www.looptube.xyz/?vid=WN-nyOyIWp0&start=82.8451017946726&end=92.7656357134441
+                        },
+                        {
+                            "label": "mayi medhaam",
+                            "url": "https://www.looptube.io/?videoId=WN-nyOyIWp0&start=92.7656357134441&end=111.68680284604561"
+                            //www.looptube.xyz/?vid=WN-nyOyIWp0&start=92.7656357134441&end=111.68680284604561
+                        }
+                    ]
+                }
+            ]
+        };
+
+        const container = document.getElementById('songs-container');
+        const speedSlider = document.getElementById('speed-slider');
+        const speedValue = document.getElementById('speed-value');
+        let currentRate = 1.0;
+
+        // Update speed display
+        speedSlider.addEventListener('input', function() {
+            const percentage = this.value;
+            speedValue.textContent = percentage + '%';
+            currentRate = percentage / 100;
+        });
+
+        songsData.songs.forEach(song => {
+            const songDiv = document.createElement('div');
+            songDiv.className = 'song';
+            const title = document.createElement('h2');
+            title.textContent = song.title;
+            songDiv.appendChild(title);
+            const linesList = document.createElement('ul');
+            linesList.className = 'lines';
+            song.lines.forEach(line => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.textContent = line.label;
+                a.onclick = () => {
+                    let url = line.url;
+                    // Append rate if not already present
+                    if (url.includes('&rate=')) {
+                        url = url.replace(/&rate=[^&]*/, '&rate=' + currentRate);
+                    } else {
+                        url += '&rate=' + currentRate;
+                    }
+                    document.querySelector('iframe[name="song"]').src = url;
+                };
+                li.appendChild(a);
+                linesList.appendChild(li);
+            });
+            songDiv.appendChild(linesList);
+            container.appendChild(songDiv);
+        });</script>
+</body>
+</html>
