@@ -102,7 +102,8 @@
         <iframe name="song" title="Song Content" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
     </div>
 
-    <script>const songsData = {
+    <script>
+        const songsData = {
             "songs": [
                 {
                     "title": "Durga Suktam",
@@ -241,6 +242,76 @@
                             //www.looptube.xyz/?vid=WN-nyOyIWp0&start=92.7656357134441&end=111.68680284604561
                         }
                     ]
+                },
+                {
+                    "title": "Narayana Suktam",
+                    "lines": [
+                        {
+                            "label": "Sahasra Shirsham",
+                            "url": "https://looptube.io/?videoId=T7706kSqKBo&start=8.443876938964843&end=22.69232973441105"
+                        },
+                        {
+                            "label": "Vishwatha Paramaanityam",
+                            "url": "https://looptube.io/?videoId=T7706kSqKBo&start=22.69232973441105&end=34.938559251673084"
+                        },
+                        {
+                            "label": "Patim",
+                            "url": "https://looptube.io/?videoId=T7706kSqKBo&start=35.57100620499927&end=43.66282395755547"
+                        },
+                        {
+                            "label": "Narayanam maha gneyam",
+                            "url": "https://looptube.io/?videoId=T7706kSqKBo&start=43.46438855794044&end=56.54150042814369"
+                        },
+                        {
+                            "label": "Narayana param brahma",
+                            "url": "https://looptube.io/?videoId=T7706kSqKBo&start=57.17394738146984&end=70.25105925167293"
+                        },
+                        {
+                            "label": "Yat cha",
+                            "url": "https://looptube.io/?videoId=T7706kSqKBo&start=70.05262385205806&end=76.89811807520225"
+                        },
+                        {
+                            "label": "Anthar bahishcha",
+                            "url": "https://looptube.io/?videoId=T7706kSqKBo&start=76.69968267558751&end=90.60767689873163"
+                        },
+                        {
+                            "label": "Padma kosha",
+                            "url": "https://looptube.io/?videoId=T7706kSqKBo&start=90.40924149911702&end=103.90179454579037"
+                        },
+                        {
+                            "label": "Jwaala maala",
+                            "url": "https://looptube.io/?videoId=T7706kSqKBo&start=104.11880032264655&end=116.365029839908"
+                        },
+                        {
+                            "label": "Tasyaantae",
+                            "url": "https://looptube.io/?videoId=T7706kSqKBo&start=116.1665944402937&end=130.9054710163785"
+                        },
+                        {
+                            "label": "Soograbhugvi",
+                            "url": "https://looptube.io/?videoId=T7706kSqKBo&start=130.70703561676436&end=143.10333153508802"
+                        },
+                        {
+                            "label": "Santaapayati",
+                            "url": "https://looptube.io/?videoId=T7706kSqKBo&start=143.5377129076011&end=156.90944043283002"
+                        },
+                        {
+                            "label": "Neelatoo",
+                            "url": "https://looptube.io/?videoId=T7706kSqKBo&start=156.70879817437662&end=170.03859538166213"
+                        },
+                        {
+                            "label": "Tasyaa shikhaayaa",
+                            "url": "https://looptube.io/?videoId=T7706kSqKBo&start=170.8337981743767&end=187.07168361695628"
+                        },
+                        {
+                            "label": "Rutagm",
+                            "url": "https://looptube.io/?videoId=T7706kSqKBo&start=186.6205628802592&end=199.42581456957458"
+                        },
+                        {
+                            "label": "Om Narayanaya",
+                            "url": "https://looptube.io/?videoId=T7706kSqKBo&start=199.7930467840205&end=217.26993520664692"
+                        }
+
+                    ]
                 }
             ]
         };
@@ -251,7 +322,7 @@
         let currentRate = 1.0;
 
         // Update speed display
-        speedSlider.addEventListener('input', function() {
+        speedSlider.addEventListener('input', function () {
             const percentage = this.value;
             speedValue.textContent = percentage + '%';
             currentRate = percentage / 100;
